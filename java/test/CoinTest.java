@@ -1,13 +1,13 @@
-package java.test;
+package test;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.src.Coin;
+import src.Coin;
 
 
-public class CoinTests {
+public class CoinTest {
 
     /*@BeforeClass
     public static void mockRNG() {
@@ -15,7 +15,7 @@ public class CoinTests {
     }*/
 
     @Test
-    public static void SingleCoinThrow () {
+    public void SingleCoinThrow () {
         Coin c = new Coin() ;
         Assert.assertEquals(1, c.throwCoin());
     }
