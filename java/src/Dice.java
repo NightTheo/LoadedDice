@@ -1,4 +1,4 @@
-package java.src;
+package src;
 
 public class Dice extends Throwable {
     public Dice(int value) {

@@ -1,4 +1,4 @@
-package java.src;
+package src;
 
 public class Coin extends Throwable{
     public Coin() {
