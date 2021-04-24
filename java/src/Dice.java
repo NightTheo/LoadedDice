@@ -1,14 +1,19 @@
 package src;
 
+import java.util.ArrayList;
+
 public class Dice extends Throwable {
     public Dice(int value) {
         super();
         if( 4 < value || value > 20 ) {
-            super.nbFaces = value;
+            super.setNbFaces(value);
+
+            ArrayList<Integer> faces = new ArrayList<>();
             for(int i = 1; i <= value; i++)
-                super.faces.add(i);
+                faces.add(i);
+            super.setFaces(faces);
         }else{
-            super.nbFaces = 0;
+            super.setNbFaces(0);
         }
     }
 }

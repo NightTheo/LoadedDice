@@ -8,10 +8,13 @@ import java.util.Collection;
 public class Knucklebone extends Throwable {
     public Knucklebone() {
         super();
-        super.nbFaces = 4;
-        super.faces.add(1);
-        super.faces.add(3);
-        super.faces.add(4);
-        super.faces.add(6);
+        super.setNbFaces(4);
+
+        ArrayList<Integer> faces = new ArrayList<>();
+        faces.add(1);
+        faces.add(3);
+        faces.add(4);
+        faces.add(6);
+        super.setFaces(faces);
     }
 }

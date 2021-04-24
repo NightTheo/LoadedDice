@@ -3,8 +3,8 @@ package src;
 import java.util.ArrayList;
 
 public abstract class Throwable {
-    protected int nbFaces;
-    protected ArrayList<Integer> faces = new ArrayList<>();
+    private int nbFaces;
+    private ArrayList<Integer> faces;
 
     public int getNbFaces() {
         return nbFaces;
