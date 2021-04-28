@@ -7,19 +7,23 @@ public abstract class Throwable {
     protected int nbFaces;
     protected ArrayList<Integer> faces;
 
-    public int getNbFaces() {
+    protected int getNbFaces() {
         return nbFaces;
     }
 
-    public ArrayList<Integer> getFaces() {
+    protected int getFace(int position) {
+        return faces.get(position);
+    }
+
+    protected ArrayList<Integer> getFaces() {
         return faces;
     }
 
-    public void setNbFaces(int nbFaces) {
+    protected void setNbFaces(int nbFaces) {
         this.nbFaces = nbFaces;
     }
 
-    public void setFaces(ArrayList<Integer> faces) {
+    protected void setFaces(ArrayList<Integer> faces) {
         this.faces = faces;
     }
 }

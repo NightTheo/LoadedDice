@@ -1,5 +1,7 @@
 package src;
 
+import Random.RNG;
+import Random.RNGMock;
 import java.util.ArrayList;
 
 public class Coin extends Throwable{
@@ -12,7 +14,7 @@ public class Coin extends Throwable{
         super.setFaces(faces);
     }
 
-    public static int throwCoin () {
-        return 1;
+    public int throwCoin () {
+        return this.getFace(RNG.random(this.getNbFaces()));
     }
 }
