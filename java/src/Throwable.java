@@ -1,5 +1,7 @@
 package src;
 
+import Random.RNG;
+
 import java.util.ArrayList;
 
 public abstract class Throwable {
@@ -25,5 +27,9 @@ public abstract class Throwable {
 
     protected void setFaces(ArrayList<Integer> faces) {
         this.faces = faces;
+    }
+
+    public int roll(){
+        return this.getFace(RNG.random(this.getNbFaces()));
     }
 }

@@ -19,6 +19,6 @@ public class KnuckleboneTest {
     @Test
     public void SingleKnuckleboneThrow () {
         Knucklebone k = new Knucklebone();
-        Assert.assertEquals(4, k.throwKnucklebone());
+        Assert.assertEquals(4, k.roll());
     }
 }

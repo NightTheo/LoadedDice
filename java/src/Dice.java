@@ -1,5 +1,7 @@
 package src;
 
+import Random.RNG;
+
 import java.util.ArrayList;
 
 public class Dice extends Throwable {
@@ -16,4 +18,6 @@ public class Dice extends Throwable {
             super.setNbFaces(0);
         }
     }
+
+
 }

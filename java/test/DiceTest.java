@@ -5,22 +5,18 @@ import Random.RNGMock;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import src.Dice;
 
-import src.Coin;
 
-
-public class CoinTest {
-
+public class DiceTest {
     @BeforeClass
     public static void mockRNG() {
         RNG.setImpl(new RNGMock());
     }
 
     @Test
-    public void SingleCoinThrow () {
-        Coin c = new Coin() ;
-        Assert.assertEquals(2, c.roll());
+    public void SingleDiceTest(){
+        Dice d = new Dice(6);
+        Assert.assertEquals(4, d.roll());
     }
-
-
 }

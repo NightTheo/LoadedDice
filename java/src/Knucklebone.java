@@ -21,7 +21,4 @@ public class Knucklebone extends Throwable {
         super.setFaces(faces);
     }
 
-    public int throwKnucklebone () {
-        return this.getFace(RNG.random(this.getNbFaces()));
-    }
 }

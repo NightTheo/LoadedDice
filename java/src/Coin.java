@@ -13,8 +13,4 @@ public class Coin extends Throwable{
         faces.add(2);
         super.setFaces(faces);
     }
-
-    public int throwCoin () {
-        return this.getFace(RNG.random(this.getNbFaces()));
-    }
 }
