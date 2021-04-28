@@ -6,6 +6,9 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import src.Dice;
+import src.Throw;
+
+import java.util.ArrayList;
 
 
 public class DiceTest {
@@ -18,5 +21,12 @@ public class DiceTest {
     public void SingleDiceTest(){
         Dice d = new Dice(6);
         Assert.assertEquals(4, d.roll());
+    }
+
+    @Test
+    public void singleD6Roll() {
+        Throw throwTest = new Throw(new int[]{6}, 0,0);
+        throwTest.run();
+        Assert.assertEquals("[4]", throwTest.toString());
     }
 }
