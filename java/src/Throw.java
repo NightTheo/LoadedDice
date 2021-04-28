@@ -24,9 +24,10 @@ public class Throw {
         ArrayList<Integer> results = new ArrayList<>();
         for(i = 0; i < nbDiceFaces.length; i++){
             if(nbDiceFaces[i] <= 4 || nbDiceFaces[i] >= 20){
-                results.clear();
+                //result.clear();
                 results.add(-1);
-                return results;
+                // return results;
+                continue;
             }
             Dice d = new Dice(nbDiceFaces[i]);
             results.add(d.roll());

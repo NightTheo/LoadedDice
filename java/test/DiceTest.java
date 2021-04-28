@@ -37,7 +37,22 @@ public class DiceTest {
 
     @Test
     public void wrongDice() {
-        Throw throwTest = new Throw(new int[]{21}, 0, 2);
+        Throw throwTest = new Throw(new int[]{23}, 0, 0);
         Assert.assertEquals("[-1]", throwTest.run().toString());
     }
+
+    @Test
+    public void oneWrongDice() {
+        Throw throwTest = new Throw(new int[]{6,8,0,6}, 0, 0);
+        //Assert.assertEquals("[-1]", throwTest.run().toString());
+        Assert.assertEquals("[5, 4, 4, -1]", throwTest.run().toString());
+    }
+
+    @Test
+    public void twoWrongDice() {
+        Throw throwTest = new Throw(new int[]{0,8,0,6}, 0, 0);
+        //Assert.assertEquals("[-1]", throwTest.run().toString());
+        Assert.assertEquals("[5, 4, -1, -1]", throwTest.run().toString());
+    }
+
 }

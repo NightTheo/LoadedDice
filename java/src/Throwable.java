@@ -9,6 +9,10 @@ public abstract class Throwable {
     protected int nbFaces;
     protected ArrayList<Integer> faces;
 
+    public int roll(){
+        return this.getFace(RNG.random(this.getNbFaces()));
+    }
+
     protected int getNbFaces() {
         return nbFaces;
     }
@@ -29,10 +33,4 @@ public abstract class Throwable {
         this.faces = faces;
     }
 
-    public int roll(){
-        if(this.getNbFaces() != -1)
-            return this.getFace(RNG.random(this.getNbFaces()));
-        else
-            return -1;
-    }
 }
