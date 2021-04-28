@@ -1,6 +1,9 @@
 package src;
 
 
+import Random.RNG;
+import Random.RNGMock;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -16,5 +19,9 @@ public class Knucklebone extends Throwable {
         faces.add(4);
         faces.add(6);
         super.setFaces(faces);
+    }
+
+    public int throwKnucklebone () {
+        return this.getFace(RNG.random(this.getNbFaces()));
     }
 }
