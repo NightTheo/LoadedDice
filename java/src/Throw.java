@@ -27,10 +27,14 @@ public class Throw {
             results.add(d.roll());
         }
 
-        for (i = 0 ; i < this.nbKnucklebone ; ++i) {
-            Knucklebone k = new Knucklebone();
+        Knucklebone k = new Knucklebone();
+        for (i = 0 ; i < this.nbKnucklebone ; ++i)
             results.add(k.roll());
-        }
+
+
+        Coin c = new Coin();
+        for (i = 0 ; i < this.nbCoin ; ++i)
+            results.add(c.roll());
 
         Collections.sort(results);
         Collections.reverse(results);

@@ -26,15 +26,13 @@ public class DiceTest {
     @Test
     public void singleD6Roll() {
         Throw throwTest = new Throw(new int[]{6}, 0,0);
-        throwTest.run();
-        Assert.assertEquals("[4]", throwTest.toString());
+        Assert.assertEquals("[4]", throwTest.run().toString());
     }
 
     @Test
     public void twoD6Roll() {
         Throw throwTest = new Throw(new int[]{6,6}, 0,0);
-        throwTest.run();
-        Assert.assertEquals("[4, 4]", throwTest.getLastThrow().toString());
+        Assert.assertEquals("[4, 4]", throwTest.run().toString());
     }
 
 
