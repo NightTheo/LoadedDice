@@ -20,23 +20,28 @@ public class Throw {
     }
 
     public ArrayList<Integer> run() {
+        int i ;
         ArrayList<Integer> results = new ArrayList<>();
-        for(int i = 0; i < nbDiceFaces.length; i++){
+        for(i = 0; i < nbDiceFaces.length; i++){
             Dice d = new Dice(nbDiceFaces[i]);
             results.add(d.roll());
+        }
+
+        for (i = 0 ; i < this.nbKnucklebone ; ++i) {
+            Knucklebone k = new Knucklebone();
+            results.add(k.roll());
         }
 
         Collections.sort(results);
         Collections.reverse(results);
 
         this.lastThrow.clear();
-        for(int i = 0; i < results.size(); i++)
+        for(i = 0; i < results.size(); i++)
             lastThrow.add(results.get(i));
         return results;
     }
 
-    @Override
-    public String toString() {
-        return this.lastThrow.toString();
+    public ArrayList<Integer> getLastThrow() {
+        return this.lastThrow;
     }
 }
