@@ -40,4 +40,5 @@ public class ThrowTest {
         Throw throwTest = new Throw(new int[]{8}, 0, 2);
         Assert.assertEquals("[5, 4, 4]", throwTest.run().toString());
     }
+
 }

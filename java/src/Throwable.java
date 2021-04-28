@@ -30,6 +30,9 @@ public abstract class Throwable {
     }
 
     public int roll(){
-        return this.getFace(RNG.random(this.getNbFaces()));
+        if(this.getNbFaces() != -1)
+            return this.getFace(RNG.random(this.getNbFaces()));
+        else
+            return -1;
     }
 }

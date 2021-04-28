@@ -35,5 +35,9 @@ public class DiceTest {
         Assert.assertEquals("[4, 4]", throwTest.run().toString());
     }
 
-
+    @Test
+    public void wrongDice() {
+        Throw throwTest = new Throw(new int[]{21}, 0, 2);
+        Assert.assertEquals("[-1]", throwTest.run().toString());
+    }
 }
