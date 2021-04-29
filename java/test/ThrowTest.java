@@ -19,25 +19,31 @@ public class ThrowTest {
 
     @Test
     public void getLastThrowNoRun() {
-        Throw throwTest = new Throw(new int[]{6}, 0, 0);
+        Throw throwTest = new Throw(new int[]{6}, 0, 0, new int[][]{});
         Assert.assertEquals("[-1]", throwTest.getLastThrow().toString());
     }
 
     @Test
+    public void NothingToThrow() {
+        Throw throwTest = new Throw(new int[]{}, 0, 0, new int[][]{});
+        Assert.assertEquals("[]", throwTest.run().toString());
+    }
+
+    @Test
     public void D6AndCoin() {
-        Throw throwTest = new Throw(new int[]{6}, 1, 0);
+        Throw throwTest = new Throw(new int[]{6}, 1, 0, new int[][]{});
         Assert.assertEquals("[4, 2]", throwTest.run().toString());
     }
 
     @Test
     public void twoD6AndCoins() {
-        Throw throwTest = new Throw(new int[]{6, 6}, 2, 0);
+        Throw throwTest = new Throw(new int[]{6, 6}, 2, 0, new int[][]{});
         Assert.assertEquals("[4, 4, 2, 2]", throwTest.run().toString());
     }
 
     @Test
     public void D8andKnucklebones() {
-        Throw throwTest = new Throw(new int[]{8}, 0, 2);
+        Throw throwTest = new Throw(new int[]{8}, 0, 2, new int[][]{});
         Assert.assertEquals("[5, 4, 4]", throwTest.run().toString());
     }
 

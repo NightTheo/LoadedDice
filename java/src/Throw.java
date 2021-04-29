@@ -9,13 +9,15 @@ public class Throw {
     private int nbDiceFaces[];
     private int nbCoin;
     private int nbKnucklebone;
+    private int[][] loadedDices;
     private ArrayList<Integer> lastThrow;
 
-    public Throw(int nbDiceFaces[], int nbCoin, int nbKnucklebone) {
+    public Throw(int nbDiceFaces[], int nbCoin, int nbKnucklebone,int[][] loadedDices) {
         this.nbDiceFaces = nbDiceFaces;
         this.nbCoin = nbCoin;
         this.nbKnucklebone =  nbKnucklebone;
         this.lastThrow = new ArrayList<>();
+        this.loadedDices = loadedDices;
         this.lastThrow.add(-1);
     }
 
@@ -24,13 +26,20 @@ public class Throw {
         ArrayList<Integer> results = new ArrayList<>();
         for(i = 0; i < nbDiceFaces.length; i++){
             if(nbDiceFaces[i] <= 4 || nbDiceFaces[i] >= 20){
-                //result.clear();
                 results.add(-1);
-                // return results;
                 continue;
             }
             Dice d = new Dice(nbDiceFaces[i]);
             results.add(d.roll());
+        }
+
+        for(i = 0; i < loadedDices.length; i++){
+            if(loadedDices[i][0] <= 4 || loadedDices[i][0] >= 20){
+                results.add(-1);
+                continue;
+            }
+            LoadedDice ld = new LoadedDice(loadedDices[i][0], loadedDices[i][1], loadedDices[i][2]);
+            results.add(ld.roll());
         }
 
         Knucklebone k = new Knucklebone();
@@ -55,3 +64,4 @@ public class Throw {
         return this.lastThrow;
     }
 }
+

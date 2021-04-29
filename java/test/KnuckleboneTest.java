@@ -24,13 +24,13 @@ public class KnuckleboneTest {
 
     @Test
     public void singleKnuckleboneRoll() {
-        Throw throwTest = new Throw(new int[]{}, 0,1);
+        Throw throwTest = new Throw(new int[]{}, 0,1, new int[][]{});
         Assert.assertEquals("[4]", throwTest.run().toString());
     }
 
     @Test
     public void doubleKnuckleboneRoll() {
-        Throw throwTest = new Throw(new int[]{}, 0,2);
+        Throw throwTest = new Throw(new int[]{}, 0,2, new int[][]{});
         Assert.assertEquals("[4, 4]", throwTest.run().toString());
     }
 }

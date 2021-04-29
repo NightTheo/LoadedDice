@@ -25,17 +25,16 @@ public class CoinTest {
 
     @Test
     public void singleCoinRoll() {
-        Throw throwTest = new Throw(new int[]{}, 1,0);
+        Throw throwTest = new Throw(new int[]{}, 1,0, new int[][]{});
         throwTest.run();
         Assert.assertEquals("[2]", throwTest.getLastThrow().toString());
     }
 
     @Test
     public void doubleCoinRoll() {
-        Throw throwTest = new Throw(new int[]{}, 2,0);
+        Throw throwTest = new Throw(new int[]{}, 2,0, new int[][]{});
         throwTest.run();
         Assert.assertEquals("[2, 2]", throwTest.getLastThrow().toString());
     }
-
 
 }
