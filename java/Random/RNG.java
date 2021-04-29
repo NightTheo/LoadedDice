@@ -12,5 +12,7 @@ public class RNG {
     public static int random(int max) {
         return impl.random(max);
     }
+
+    public static int randomBreak(int max) { return impl.randomBreak(max); }
 }
 

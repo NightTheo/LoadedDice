@@ -1,5 +1,7 @@
 package src;
 
+import Random.RNG;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -11,6 +13,7 @@ public class Throw {
     private int nbKnucklebone;
     private int[][] loadedDices;
     private ArrayList<Integer> lastThrow;
+    private int breakUp = 0;
 
     public Throw(int nbDiceFaces[], int nbCoin, int nbKnucklebone,int[][] loadedDices) {
         this.nbDiceFaces = nbDiceFaces;
@@ -21,11 +24,28 @@ public class Throw {
         this.lastThrow.add(-1);
     }
 
+    public Throw(int nbDiceFaces[], int nbCoin, int nbKnucklebone,int[][] loadedDices, int breakUp) {
+        this.nbDiceFaces = nbDiceFaces;
+        this.nbCoin = nbCoin;
+        this.nbKnucklebone =  nbKnucklebone;
+        this.lastThrow = new ArrayList<>();
+        this.loadedDices = loadedDices;
+        this.lastThrow.add(-1);
+        this.breakUp = breakUp;
+    }
+
     public ArrayList<Integer> run() {
         int i ;
+        double random;
         ArrayList<Integer> results = new ArrayList<>();
         for(i = 0; i < nbDiceFaces.length; i++){
-            if(nbDiceFaces[i] <= 4 || nbDiceFaces[i] >= 20){
+            if (breakUp == 1 ){
+                random = RNG.randomBreak(100);
+            }else {
+                random = 20;
+            }
+
+            if(nbDiceFaces[i] <= 4 || nbDiceFaces[i] >= 20 || random <= 10){
                 results.add(-1);
                 continue;
             }

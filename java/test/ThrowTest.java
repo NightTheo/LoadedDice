@@ -47,4 +47,10 @@ public class ThrowTest {
         Assert.assertEquals("[5, 4, 4]", throwTest.run().toString());
     }
 
+    @Test
+    public void D6Break() {
+        Throw throwTest = new Throw(new int[]{6}, 0, 0, new int[][]{}, 1);
+        Assert.assertEquals("[-1]", throwTest.run().toString());
+    }
+
 }
