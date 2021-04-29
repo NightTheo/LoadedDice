@@ -37,4 +37,11 @@ public class CoinTest {
         Assert.assertEquals("[2, 2]", throwTest.getLastThrow().toString());
     }
 
+    @Test
+    public void CoinBreak() {
+        Throw throwTest = new Throw(new int[]{}, 2,0, new int[][]{}, 1);
+        throwTest.run();
+        Assert.assertEquals("[-1, -1]", throwTest.getLastThrow().toString());
+    }
+
 }

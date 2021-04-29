@@ -3,7 +3,6 @@ package src;
 import Random.RNG;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class Throw {
@@ -40,11 +39,10 @@ public class Throw {
         ArrayList<Integer> results = new ArrayList<>();
         for(i = 0; i < nbDiceFaces.length; i++){
             if (breakUp == 1 ){
-                random = RNG.randomBreak(100);
+                random = RNG.randomBreakDice(100);
             }else {
                 random = 20;
             }
-
             if(nbDiceFaces[i] <= 4 || nbDiceFaces[i] >= 20 || random <= 10){
                 results.add(-1);
                 continue;
@@ -68,8 +66,18 @@ public class Throw {
 
 
         Coin c = new Coin();
-        for (i = 0 ; i < this.nbCoin ; ++i)
+        for (i = 0 ; i < this.nbCoin ; ++i) {
+            if (breakUp == 1 ){
+                random = RNG.randomBreakCoin(100);
+            }else {
+                random = 20;
+            }
+            if(random <= 5){
+                results.add(-1);
+                continue;
+            }
             results.add(c.roll());
+        }
 
         Collections.sort(results);
         Collections.reverse(results);

@@ -8,7 +8,12 @@ public class RNGMock extends RNGImpl {
     }
 
     @Override
-    public int randomBreak(int max) {
+    public int randomBreakDice(int max) {
         return max > 0 ? max / 10 : 0;
+    }
+
+    @Override
+    public int randomBreakCoin(int max) {
+        return max > 0 ? max / 20 : 0;
     }
 }
