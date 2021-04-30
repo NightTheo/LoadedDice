@@ -15,6 +15,7 @@ public class LoadedDice  extends Dice {
 
         this.loadedFace = loadedFace;
         this.probability = probability;
+        super.breakable = false;
     }
 
     @Override

@@ -13,9 +13,5 @@ public class RNG {
         return impl.random(max);
     }
 
-    public static int randomBreakDice(int max) { return impl.randomBreakDice(max); }
-
-    public static int randomBreakCoin(int max) { return impl.randomBreakCoin(max); }
-
 }
 

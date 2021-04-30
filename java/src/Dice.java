@@ -17,6 +17,7 @@ public class Dice extends Throwable {
         }else{
             throw new IllegalArgumentException("The value of the dice must be between 4 and 20");
         }
+        super.breakable = true;
     }
 
 

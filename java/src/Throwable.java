@@ -8,7 +8,7 @@ public abstract class Throwable {
 
     protected int nbFaces;
     protected ArrayList<Integer> faces;
-    protected Boolean breakable = true;
+    public Boolean breakable = true;
 
     public int roll(){
         return this.getFace(RNG.random(this.getNbFaces()));

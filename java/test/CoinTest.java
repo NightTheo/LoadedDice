@@ -2,6 +2,7 @@ package test;
 
 import Random.RNG;
 import Random.RNGMock;
+import Random.RNGMockBreak;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -39,7 +40,8 @@ public class CoinTest {
 
     @Test
     public void CoinBreak() {
-        Throw throwTest = new Throw(new int[]{}, 2,0, new int[][]{}, 1);
+        RNG.setImpl(new RNGMockBreak());
+        Throw throwTest = new Throw(new int[]{}, 2,0, new int[][]{});
         throwTest.run();
         Assert.assertEquals("[-1, -1]", throwTest.getLastThrow().toString());
     }

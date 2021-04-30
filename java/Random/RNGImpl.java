@@ -7,10 +7,4 @@ public class RNGImpl {
     public int random(int max) {
         return r.nextInt(max);
     }
-    public int randomBreakDice(int max) {
-        return randomBreakDice(max);
-    }
-    public int randomBreakCoin(int max) {
-        return randomBreakCoin(max);
-    }
 }

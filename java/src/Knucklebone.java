@@ -19,6 +19,7 @@ public class Knucklebone extends Throwable {
         faces.add(4);
         faces.add(6);
         super.setFaces(faces);
+        super.breakable = false;
     }
 
 }

@@ -2,7 +2,9 @@ package test;
 
 import Random.RNG;
 import Random.RNGMock;
+import Random.RNGMockBreak;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import src.Coin;
@@ -12,8 +14,8 @@ import src.Throw;
 
 public class ThrowTest {
 
-    @BeforeClass
-    public static void mockRNG() {
+    @Before
+    public void mockRNG() {
         RNG.setImpl(new RNGMock());
     }
 
@@ -21,6 +23,16 @@ public class ThrowTest {
     public void getLastThrowNoRun() {
         Throw throwTest = new Throw(new int[]{6}, 0, 0, new int[][]{});
         Assert.assertEquals("[-1]", throwTest.getLastThrow().toString());
+    }
+
+    @Test
+    public void moreThan5Throwables() {
+        try{
+            Throw throwTest = new Throw(new int[]{}, 5, 0, new int[][]{});
+        }
+        catch(Exception e) {
+            Assert.assertNotNull(e);
+        }
     }
 
     @Test
@@ -49,7 +61,8 @@ public class ThrowTest {
 
     @Test
     public void D6Break() {
-        Throw throwTest = new Throw(new int[]{6}, 0, 0, new int[][]{}, 1);
+        RNG.setImpl(new RNGMockBreak());
+        Throw throwTest = new Throw(new int[]{6}, 0, 0, new int[][]{});
         Assert.assertEquals("[-1]", throwTest.run().toString());
     }
 

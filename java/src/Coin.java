@@ -12,5 +12,6 @@ public class Coin extends Throwable{
         faces.add(1);
         faces.add(2);
         super.setFaces(faces);
+        super.breakable = true;
     }
 }
