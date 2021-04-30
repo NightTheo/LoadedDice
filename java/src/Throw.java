@@ -11,6 +11,7 @@ public class Throw {
     private int nbCoin;
     private int nbKnucklebone;
     private int[][] loadedDices;
+    private ArrayList<Integer> results;
     private ArrayList<Integer> lastThrow;
 
     public Throw(int nbDiceFaces[], int nbCoin, int nbKnucklebone,int[][] loadedDices) {
@@ -26,20 +27,38 @@ public class Throw {
     }
 
     public ArrayList<Integer> run() {
-        int i ;
-        double random;
-        ArrayList<Integer> results = new ArrayList<>();
+        int i;
+        results = new ArrayList<>();
+
+        runDices();
+        runLoadedDices();
+        runKnucklebones();
+        runCoins();
+
+        Collections.sort(results);
+        Collections.reverse(results);
+
+        this.lastThrow.clear();
+        for(i = 0; i < results.size(); i++)
+            lastThrow.add(results.get(i));
+        return results;
+    }
+
+    private void runDices() {
+        int i, random;
         for(i = 0; i < nbDiceFaces.length; i++){
             random = RNG.random(100);
             if(nbDiceFaces[i] <= 4 || nbDiceFaces[i] >= 20 || random <= 10){
-                results.add(-1);
+                this.results.add(-1);
                 continue;
             }
             Dice d = new Dice(nbDiceFaces[i]);
-            results.add(d.roll());
+            this.results.add(d.roll());
         }
+    }
 
-        for(i = 0; i < loadedDices.length; i++){
+    private void runLoadedDices() {
+        for(int i = 0; i < loadedDices.length; i++){
             if(loadedDices[i][0] <= 4 || loadedDices[i][0] >= 20){
                 results.add(-1);
                 continue;
@@ -47,12 +66,16 @@ public class Throw {
             LoadedDice ld = new LoadedDice(loadedDices[i][0], loadedDices[i][1], loadedDices[i][2]);
             results.add(ld.roll());
         }
+    }
 
+    private void runKnucklebones() {
         Knucklebone k = new Knucklebone();
-        for (i = 0 ; i < this.nbKnucklebone ; ++i)
+        for (int i = 0 ; i < this.nbKnucklebone ; ++i)
             results.add(k.roll());
+    }
 
-
+    private void runCoins() {
+        int i, random;
         Coin c = new Coin();
         for (i = 0 ; i < this.nbCoin ; ++i) {
             random = RNG.random(100);
@@ -62,14 +85,6 @@ public class Throw {
             }
             results.add(c.roll());
         }
-
-        Collections.sort(results);
-        Collections.reverse(results);
-
-        this.lastThrow.clear();
-        for(i = 0; i < results.size(); i++)
-            lastThrow.add(results.get(i));
-        return results;
     }
 
     public ArrayList<Integer> getLastThrow() {

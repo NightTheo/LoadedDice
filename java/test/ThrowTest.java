@@ -27,12 +27,15 @@ public class ThrowTest {
 
     @Test
     public void moreThan5Throwables() {
+        Exception exp = null;
         try{
-            Throw throwTest = new Throw(new int[]{}, 5, 0, new int[][]{});
+            Throw throwTest = new Throw(new int[]{}, 6, 0, new int[][]{});
         }
         catch(Exception e) {
-            Assert.assertNotNull(e);
+            exp = e;
         }
+        Assert.assertNotNull(exp);
+        Assert.assertEquals(IllegalArgumentException.class, exp.getClass());
     }
 
     @Test
