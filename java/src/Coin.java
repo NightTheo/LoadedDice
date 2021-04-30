@@ -8,6 +8,6 @@ import java.util.Arrays;
 
 public class Coin extends Throwable{
     public Coin() {
-        super(2, (ArrayList<Integer>) Arrays.asList(0,1), true);
+        super(2, Arrays.asList(1,2), true);
     }
 }

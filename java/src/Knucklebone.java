@@ -11,7 +11,7 @@ import java.util.Collection;
 
 public class Knucklebone extends Throwable {
     public Knucklebone() {
-        super(4, (ArrayList) Arrays.asList(1,2,4,6), false);
+        super(4, Arrays.asList(1,2,4,6), false);
     }
 
 }
